@@ -1,7 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { getCurrencies } from '../services';
+import { CryptoCurrency } from '../models';
+import { getMultipleCurrencies, getSingleCurrency } from '../services';
 
 export const useCryptoList = () => {
   const [filter, setFilter] = useState('');
@@ -9,10 +10,13 @@ export const useCryptoList = () => {
 
   const query = useInfiniteQuery({
     queryKey: ['crypto-list', debouncedSearch],
-    queryFn: ({ pageParam = 0 }) => {
-      const ids = filter ? debouncedSearch?.split(',').map(id => id.trim()) : undefined;
-
-      return getCurrencies({ ids }, pageParam);
+    queryFn: async ({ pageParam = 0 }) => {
+      const ids = debouncedSearch ? debouncedSearch?.split(',').map(id => id.trim()) : undefined;
+      if (ids?.length) {
+        const response = await getSingleCurrency<CryptoCurrency[]>(ids.join(','));
+        return { data: response, nextStart: 0, hasMore: false };
+      }
+      return await getMultipleCurrencies(pageParam);
     },
     initialPageParam: 0,
     getNextPageParam: lastPage => (lastPage.hasMore ? lastPage.nextStart : undefined),
