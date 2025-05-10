@@ -1,7 +1,7 @@
-import { CryptoCurrency, CryptoCurrencyResponse } from "../models";
+import { CryptoCurrency, CryptoCurrencyResponse } from '../models';
 
 export const currencyAdapter = (currencyResponse: CryptoCurrencyResponse[]) => {
-  const adapted: CryptoCurrency[] = currencyResponse?.map((currency) => {
+  const adapted: CryptoCurrency[] = currencyResponse?.map(currency => {
     return {
       id: currency.id,
       name: currency.name,
@@ -13,5 +13,5 @@ export const currencyAdapter = (currencyResponse: CryptoCurrencyResponse[]) => {
     };
   });
 
-  return adapted;
+  return adapted ?? [];
 };

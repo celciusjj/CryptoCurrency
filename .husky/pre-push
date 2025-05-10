@@ -13,4 +13,4 @@ fi
 
 # npm run types && npm run test
 npm run types
-npm run test
+

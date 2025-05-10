@@ -1,14 +1,15 @@
-import { SearcherBar } from "@/modules/common/components/SearcherBar";
-import CryptoCurrencyItem from "@/modules/crypto/components/CryptoCurrencyItem";
-import { useCryptoList } from "@/modules/crypto/hooks/useCryptoList";
-import { useAppTheme } from "@/theme/types";
-import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
+import { SearcherBar } from '@/modules/common/components/SearcherBar';
+import CryptoCurrencyItem from '@/modules/crypto/components/CryptoCurrencyItem';
+import { useCryptoList } from '@/modules/crypto/hooks/useCryptoList';
+import { useAppTheme } from '@/theme/types';
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Text } from 'react-native-paper';
 
 export default function CryptoList() {
   const { colors } = useAppTheme();
-  const { getTheCryptoCurrencies, filter, setFilter } = useCryptoList();
+  const { data, filter, setFilter, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useCryptoList();
 
   return (
     <View style={styles.container}>
@@ -21,15 +22,20 @@ export default function CryptoList() {
           value={filter}
           onChange={setFilter}
           autoFocus
-          placeholder="Search by name or symbol..."
+          placeholder="Search by ID, separated by commas"
         />
       </View>
 
       <FlatList
-        onEndReachedThreshold={0}
+        onEndReachedThreshold={0.5}
+        onEndReached={() => {
+          if (hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
+          }
+        }}
         style={{ paddingHorizontal: 10 }}
-        data={getTheCryptoCurrencies(0, 100).data}
-        keyExtractor={(item) => item?.id?.toString()}
+        data={data}
+        keyExtractor={item => item?.id?.toString()}
         renderItem={({ item }) => (
           <CryptoCurrencyItem key={item.id} onPress={() => {}} crypto={item} />
         )}

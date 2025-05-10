@@ -1,29 +1,36 @@
-import { http } from "@/services/api";
-import { currencyAdapter } from "../adapter/CurrencyAdapter";
+import { http } from '@/services/api';
+import { currencyAdapter } from '../adapter/CurrencyAdapter';
+import { CryptoCurrency, TickerOption } from '../models';
 
-export const getCurrencies = async <T>(
-  params: {
-    id?: string;
-    symbol?: string;
-    nameid?: string;
-    name?: string;
-  },
+export const getCurrencies = async (
+  params: { ids?: string[] },
   start = 0,
-  limit = 100
-) => {
+  limit = 100,
+): Promise<{ data: CryptoCurrency[]; nextStart: number; hasMore: boolean }> => {
   try {
+    const { ids } = params;
+    const endpointUrl = ids ? TickerOption.SINGLE : TickerOption.MULTIPLE;
     const query = new URLSearchParams({
       start: start.toString(),
       limit: limit.toString(),
     });
-    if (params.id) query.append("id", params.id);
-    if (params.symbol) query.append("symbol", params.symbol);
-    if (params.nameid) query.append("nameid", params.nameid);
-    if (params.name) query.append("name", params.name);
-    const response = await http.get(`/tickers/?${query.toString()}`);
-    const adaptedCurrency = currencyAdapter(response.data.data);
-    return adaptedCurrency as T;
-  } catch (e) {
-    return e as T;
+
+    if (ids?.length) query.append('id', ids.join(','));
+    console.log(`/${endpointUrl}/?${query.toString()}`);
+    const response = await http.get(`/${endpointUrl}/?${query.toString()}`);
+    const rawData = endpointUrl === TickerOption.SINGLE ? response.data : response.data.data;
+    const adaptedCurrency = currencyAdapter(rawData);
+
+    return {
+      data: adaptedCurrency,
+      nextStart: start + limit,
+      hasMore: adaptedCurrency?.length === limit,
+    };
+  } catch {
+    return {
+      data: [],
+      nextStart: start,
+      hasMore: false,
+    };
   }
 };

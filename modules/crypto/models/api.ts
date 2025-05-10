@@ -16,3 +16,8 @@ export interface CryptoCurrencyResponse {
   tsupply: string;
   msupply: string | null;
 }
+
+export enum TickerOption {
+  MULTIPLE = 'tickers',
+  SINGLE = 'ticker',
+}
