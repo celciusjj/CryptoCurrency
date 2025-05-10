@@ -1,6 +1,6 @@
-import React, { createContext, ReactNode, useContext, useState } from "react";
-import { ColorSchemeName } from "react-native";
-import { ThemeTypes } from "../types";
+import React, { createContext, ReactNode, useContext, useState } from 'react';
+import { ColorSchemeName } from 'react-native';
+import { ThemeTypes } from '../types';
 
 export const ThemeContext = createContext<Partial<ThemeContextProps>>({
   currentTheme: ThemeTypes.LIGHT,
@@ -9,9 +9,7 @@ export const ThemeContext = createContext<Partial<ThemeContextProps>>({
 });
 
 export const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
-  const [currentTheme, setCurrentTheme] = useState<ColorSchemeName>(
-    ThemeTypes.LIGHT
-  );
+  const [currentTheme, setCurrentTheme] = useState<ColorSchemeName>(ThemeTypes.DARK);
 
   const setTheme = (value: boolean) => {
     const key = value ? ThemeTypes.DARK : ThemeTypes.LIGHT;
@@ -32,7 +30,7 @@ export const ThemeContextProvider = ({ children }: ThemeProviderProps) => {
 export const useThemeContext = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("ManagerContext must be used within a ManagerProvider");
+    throw new Error('ManagerContext must be used within a ManagerProvider');
   }
   return context;
 };

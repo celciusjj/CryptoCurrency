@@ -1,10 +1,10 @@
-import { ColorSchemeName } from "react-native";
-import { configureFonts, DefaultTheme, MD3Theme } from "react-native-paper";
-import { MD3Typescale } from "react-native-paper/lib/typescript/types";
-import { darkScheme } from "./darkScheme";
-import { getTypography } from "./getTypography";
-import { lightScheme } from "./lightScheme";
-import { ThemeTypes } from "./types";
+import { ColorSchemeName } from 'react-native';
+import { configureFonts, DefaultTheme, MD3Theme } from 'react-native-paper';
+import { MD3Typescale } from 'react-native-paper/lib/typescript/types';
+import { darkScheme } from './darkScheme';
+import { getTypography } from './getTypography';
+import { lightScheme } from './lightScheme';
+import { ThemeTypes } from './types';
 
 export const getTheme = (colorScheme: ColorSchemeName): MD3Theme => {
   const typography = getTypography();

@@ -14,10 +14,16 @@ export interface CryptoCurrencyResponse {
   percent_change_7d: string;
   csupply: string;
   tsupply: string;
-  msupply: string | null;
+  msupply: string;
 }
 
-export enum TickerOption {
-  MULTIPLE = 'tickers',
-  SINGLE = 'ticker',
+export interface SocialStatResponse {
+  reddit: {
+    avg_active_users: number | null;
+    subscribers: number | null;
+  };
+  twitter: {
+    followers_count: number;
+    status_count: number;
+  };
 }
