@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+allowed_branch_pattern="^(feature|bugfix|hotfix|release)\/[a-zA-Z0-9_-]+$"
+
+if [[ ! "$current_branch" =~ $allowed_branch_pattern ]]; then
+    echo "Error: Your branch name '$current_branch' does not match the required pattern."
+    echo "Branch names should start with 'feature/', 'bugfix/', 'hotfix/', or 'release/' followed by a valid name."
+    echo "Please rename your branch before committing."
+    exit 1
+fi
+
+# npm run types && npm run test
+npm run types
+npm run test

@@ -1,0 +1,12 @@
+#!/bin/bash
+commit_msg_file=$1
+commit_message=$(cat "$commit_msg_file")
+commit_message_pattern="^(feat|fix|docs|style|refactor|test|chore): .+$"
+echo $commit_message
+
+# Check if the commit message matches the pattern
+if ! echo "$commit_message" | grep -iqE "$commit_message_pattern"; then
+    echo "Error: Commit message format is incorrect."
+    echo "Example of correct format: 'feat: add new feature' or 'fix: resolve issue FE-002'"
+    exit 1
+fi
