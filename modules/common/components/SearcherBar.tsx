@@ -1,4 +1,3 @@
- 
 import { useThemeContext } from '@/theme/context/ThemeContextProvider';
 import { AppThemeColors, ThemeTypes, useAppTheme } from '@/theme/types';
 import React, { useState } from 'react';

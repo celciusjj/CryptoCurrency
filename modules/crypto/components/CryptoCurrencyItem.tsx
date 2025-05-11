@@ -1,4 +1,4 @@
-import { AppThemeColors, useAppTheme } from '@/theme/types';
+import { useAppTheme } from '@/theme/types';
 import { useTranslations } from '@/translations/hooks/useTranslations';
 import { Link } from 'expo-router';
 import React from 'react';
@@ -12,7 +12,7 @@ interface Props {
 
 const CryptoCurrencyItem = ({ crypto }: Props) => {
   const { colors } = useAppTheme();
-  const styles = vehicleStyles(colors);
+  const styles = currencyStyles();
   const { translate } = useTranslations();
 
   return (
@@ -80,7 +80,7 @@ const CryptoCurrencyItem = ({ crypto }: Props) => {
 
 export default CryptoCurrencyItem;
 
-export const vehicleStyles = (colors: AppThemeColors) =>
+export const currencyStyles = () =>
   StyleSheet.create({
     container: {
       paddingHorizontal: 15,

@@ -1,11 +1,10 @@
-// @ts-ignore
-import { useTheme } from "react-native-paper";
-import { MD3Typescale } from "react-native-paper/lib/typescript/types";
-import { darkScheme } from "..";
+import { useTheme } from 'react-native-paper';
+import { MD3Typescale } from 'react-native-paper/lib/typescript/types';
+import { darkScheme } from '..';
 
 export enum ThemeTypes {
-  LIGHT = "light",
-  DARK = "dark",
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 interface ThemeOptions {
