@@ -37,7 +37,7 @@ export const SearcherBar = ({
 
   return (
     <Searchbar
-      keyboardType="number-pad"
+      keyboardType="decimal-pad"
       autoFocus={autoFocus}
       inputStyle={styles.inputStyle}
       value={value ?? ''}

@@ -6,8 +6,9 @@ import { useThemeContext } from '@/theme/context/ThemeContextProvider';
 import { useAppTheme } from '@/theme/types';
 import { useTranslations } from '@/translations/hooks/useTranslations';
 import React from 'react';
-import { FlatList, SafeAreaView, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Switch, Text } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CryptoListScreen() {
   const { translate } = useTranslations();
@@ -62,6 +63,7 @@ export const styles = StyleSheet.create({
     gap: 20,
   },
   itemContainerThemeMode: {
+    gap: 10,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

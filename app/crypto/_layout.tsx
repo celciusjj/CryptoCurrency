@@ -1,6 +1,7 @@
 import { useAppTheme } from '@/theme/types';
 import { useTranslations } from '@/translations/hooks/useTranslations';
 import { Stack } from 'expo-router';
+import { Platform } from 'react-native';
 
 export default function CryptoLayout() {
   const { colors } = useAppTheme();
@@ -12,7 +13,9 @@ export default function CryptoLayout() {
       <Stack.Screen
         name="[id]"
         options={{
-          title: translate('shared.back'),
+          headerTintColor: colors.primary,
+          headerBackTitle: translate('shared.back'),
+          headerTitle: Platform.OS === 'ios' ? '' : translate('shared.back'),
           headerShown: true,
         }}
       />
