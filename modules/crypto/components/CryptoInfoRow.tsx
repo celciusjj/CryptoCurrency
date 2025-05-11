@@ -12,7 +12,7 @@ export const CryptoInfoRow = ({ label, value, valueColor }: Props) => {
   const { colors } = useAppTheme();
   return (
     <View style={styles.infoRow}>
-      <Text style={[styles.label, { color: colors.white }]}>{label}</Text>
+      <Text style={[styles.label, { color: colors.black }]}>{label}</Text>
       <Text style={{ color: valueColor ?? colors.black }}>{value || 'N/A'}</Text>
     </View>
   );
