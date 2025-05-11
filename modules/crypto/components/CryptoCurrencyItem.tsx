@@ -1,4 +1,5 @@
 import { AppThemeColors, useAppTheme } from '@/theme/types';
+import { useTranslations } from '@/translations/hooks/useTranslations';
 import { Link } from 'expo-router';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -12,6 +13,7 @@ interface Props {
 const CryptoCurrencyItem = ({ crypto }: Props) => {
   const { colors } = useAppTheme();
   const styles = vehicleStyles(colors);
+  const { translate } = useTranslations();
 
   return (
     <Link
@@ -53,11 +55,11 @@ const CryptoCurrencyItem = ({ crypto }: Props) => {
 
           <View style={{ marginTop: 10 }}>
             <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>Precio USD</Text>
+              <Text style={styles.textInfo}>{translate('crypto.priceUsd')}</Text>
               <Text>${crypto.priceUsd.toFixed(2)}</Text>
             </View>
             <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>Cambio 24h</Text>
+              <Text style={styles.textInfo}>{translate('crypto.change24h')}</Text>
               <Text
                 style={{
                   color: crypto.percentChange24h >= 0 ? 'green' : 'red',
@@ -66,7 +68,7 @@ const CryptoCurrencyItem = ({ crypto }: Props) => {
               </Text>
             </View>
             <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>Market Cap</Text>
+              <Text style={styles.textInfo}>{translate('crypto.marketCap')}</Text>
               <Text>${crypto.marketCapUsd.toLocaleString()}</Text>
             </View>
           </View>

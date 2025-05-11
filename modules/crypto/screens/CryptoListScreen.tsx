@@ -4,11 +4,13 @@ import CryptoCurrencyItem from '@/modules/crypto/components/CryptoCurrencyItem';
 import { useCryptoList } from '@/modules/crypto/hooks/useCryptoList';
 import { useThemeContext } from '@/theme/context/ThemeContextProvider';
 import { useAppTheme } from '@/theme/types';
+import { useTranslations } from '@/translations/hooks/useTranslations';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Switch, Text } from 'react-native-paper';
 
 export default function CryptoListScreen() {
+  const { translate } = useTranslations();
   const { colors } = useAppTheme();
   const { readTheme, setTheme } = useThemeContext();
   const { data, filter, setFilter, fetchNextPage, isFetchingNextPage, hasNextPage, isLoading } =
@@ -17,20 +19,20 @@ export default function CryptoListScreen() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={{ color: colors.primary700 }} variant="titleSmall">
-          Explore Cryptocurrencies
+        <Text style={{ color: colors.primary }} variant="headlineSmall">
+          {translate('cryptoList.title')}
         </Text>
 
         <View>
           <SearcherBar
             value={filter}
             onChange={setFilter}
-            placeholder="Search by ID, separated by commas"
+            placeholder={translate('cryptoList.searchPlaceholder')}
           />
         </View>
 
         <View style={styles.itemContainerThemeMode}>
-          <Text variant="bodyLarge">Dark mode</Text>
+          <Text variant="bodyLarge">{translate('cryptoList.darkMode')}</Text>
           <Switch onValueChange={setTheme} value={readTheme?.()} />
         </View>
 
