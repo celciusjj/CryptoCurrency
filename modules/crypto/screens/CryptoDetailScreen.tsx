@@ -1,5 +1,5 @@
 import Loader from '@/modules/common/components/Loader';
-import { InfoRow } from '@/modules/crypto/components/CryptoInfoRow';
+import { CryptoInfoRow } from '@/modules/crypto/components/CryptoInfoRow';
 import { useCryptoDetail } from '@/modules/crypto/hooks/useCryptoDetail';
 import { useAppTheme } from '@/theme/types';
 import { useTranslations } from '@/translations/hooks/useTranslations';
@@ -16,6 +16,7 @@ export default function CryptoDetailScreen() {
   }
 
   const {
+    id,
     name,
     symbol,
     rank,
@@ -55,52 +56,59 @@ export default function CryptoDetailScreen() {
             </View>
 
             <Divider bold style={{ marginVertical: 10 }} />
-            <InfoRow label={translate('crypto.priceUsd')} value={`$${priceUsd?.toFixed(2)}`} />
+            <CryptoInfoRow label={translate('crypto.id')} value={id} />
+            <CryptoInfoRow
+              label={translate('crypto.priceUsd')}
+              value={`$${priceUsd?.toFixed(2)}`}
+            />
 
-            <InfoRow
+            <CryptoInfoRow
               label={translate('crypto.change1h')}
               value={`${percentChange1h.toFixed(2)}%`}
               valueColor={percentChange1h >= 0 ? 'green' : 'red'}
             />
-            <InfoRow
+            <CryptoInfoRow
               label={translate('crypto.change24h')}
               value={`${percentChange24h.toFixed(2)}%`}
               valueColor={percentChange24h >= 0 ? 'green' : 'red'}
             />
-            <InfoRow
+            <CryptoInfoRow
               label={translate('crypto.change7d')}
               value={`${percentChange7d.toFixed(2)}%`}
               valueColor={percentChange7d >= 0 ? 'green' : 'red'}
             />
 
-            <InfoRow
+            <CryptoInfoRow
               label={translate('crypto.marketCap')}
               value={`$${marketCapUsd.toLocaleString()}`}
             />
-            <InfoRow label={translate('crypto.volume24')} value={`$${volume24.toLocaleString()}`} />
-            <InfoRow
+            <CryptoInfoRow
+              label={translate('crypto.volume24')}
+              value={`$${volume24.toLocaleString()}`}
+            />
+            <CryptoInfoRow
               label={translate('crypto.volume24a')}
               value={`$${volume24a.toLocaleString()}`}
             />
-            <InfoRow label={translate('crypto.csupply')} value={csupply.toLocaleString()} />
-            <InfoRow label={translate('crypto.tsupply')} value={tsupply.toLocaleString()} />
-            <InfoRow label={translate('crypto.msupply')} value={msupply?.toLocaleString()} />
+            <CryptoInfoRow label={translate('crypto.csupply')} value={csupply.toLocaleString()} />
+            <CryptoInfoRow label={translate('crypto.tsupply')} value={tsupply.toLocaleString()} />
+            <CryptoInfoRow label={translate('crypto.msupply')} value={msupply?.toLocaleString()} />
             {socialStats ? (
               <>
                 <Divider bold style={{ marginVertical: 10 }} />
-                <InfoRow
+                <CryptoInfoRow
                   label={translate('crypto.redditActiveUsers')}
                   value={String(socialStats.redditActiveUsers ?? 'N/A')}
                 />
-                <InfoRow
+                <CryptoInfoRow
                   label={translate('crypto.redditSubscribers')}
                   value={String(socialStats.redditSubscribers ?? 'N/A')}
                 />
-                <InfoRow
+                <CryptoInfoRow
                   label={translate('crypto.twitterFollowers')}
                   value={String(socialStats.twitterFollowers ?? 'N/A')}
                 />
-                <InfoRow
+                <CryptoInfoRow
                   label={translate('crypto.twitterPosts')}
                   value={String(socialStats.twitterPosts ?? 'N/A')}
                 />

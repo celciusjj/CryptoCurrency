@@ -15,6 +15,7 @@ const messages = {
         darkMode: 'Modo oscuro',
       },
       crypto: {
+        id: 'ID',
         priceUsd: 'Precio USD',
         change1h: 'Cambio 1h',
         change24h: 'Cambio 24h',
