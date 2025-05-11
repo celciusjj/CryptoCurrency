@@ -7,7 +7,6 @@ const REFETCH_INTERVAL = 30000;
 
 export const useCryptoDetail = () => {
   const { id } = useLocalSearchParams();
-
   const { data: currencyData, isLoading: isLoadingCurrency } = useQuery({
     queryKey: ['crypto-detail', id],
     queryFn: async () => {
