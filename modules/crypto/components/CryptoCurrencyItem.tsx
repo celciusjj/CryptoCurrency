@@ -5,6 +5,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Divider, Icon, Surface, Text } from 'react-native-paper';
 import { CryptoCurrency } from '../models';
+import { CryptoInfoRow } from './CryptoInfoRow';
 
 interface Props {
   crypto: CryptoCurrency;
@@ -54,23 +55,20 @@ const CryptoCurrencyItem = ({ crypto }: Props) => {
           <Divider />
 
           <View style={{ marginTop: 10 }}>
-            <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>{translate('crypto.priceUsd')}</Text>
-              <Text>${crypto.priceUsd.toFixed(2)}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>{translate('crypto.change24h')}</Text>
-              <Text
-                style={{
-                  color: crypto.percentChange24h >= 0 ? 'green' : 'red',
-                }}>
-                {crypto.percentChange24h.toFixed(2)}%
-              </Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.textInfo}>{translate('crypto.marketCap')}</Text>
-              <Text>${crypto.marketCapUsd.toLocaleString()}</Text>
-            </View>
+            <CryptoInfoRow label={translate('crypto.id')} value={crypto.id} />
+            <CryptoInfoRow
+              label={translate('crypto.priceUsd')}
+              value={`$${crypto.priceUsd.toFixed(2)}`}
+            />
+            <CryptoInfoRow
+              label={translate('crypto.change24h')}
+              value={`${crypto.percentChange24h.toFixed(2)}%`}
+              valueColor={crypto.percentChange24h >= 0 ? 'green' : 'red'}
+            />
+            <CryptoInfoRow
+              label={translate('crypto.marketCap')}
+              value={`$${crypto.marketCapUsd.toLocaleString()}`}
+            />
           </View>
         </Surface>
       </TouchableOpacity>
@@ -102,6 +100,8 @@ export const currencyStyles = () =>
       marginBottom: 10,
     },
     textInfo: {
+      width: '50%',
+      flexWrap: 'wrap',
       fontWeight: '700',
     },
   });

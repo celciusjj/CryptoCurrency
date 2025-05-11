@@ -8,6 +8,7 @@ import { useTranslations } from '@/translations/hooks/useTranslations';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Switch, Text } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CryptoListScreen() {
   const { translate } = useTranslations();
@@ -18,7 +19,7 @@ export default function CryptoListScreen() {
 
   return (
     <>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={{ color: colors.primary }} variant="headlineSmall">
           {translate('cryptoList.title')}
         </Text>
@@ -48,7 +49,7 @@ export default function CryptoListScreen() {
           keyExtractor={item => item.id}
           renderItem={({ item }) => <CryptoCurrencyItem key={item.id} crypto={item} />}
         />
-      </View>
+      </SafeAreaView>
       <Loader loading={isLoading} />
     </>
   );
@@ -56,11 +57,13 @@ export default function CryptoListScreen() {
 
 export const styles = StyleSheet.create({
   container: {
+    paddingTop: 40,
     padding: 20,
     flex: 1,
     gap: 20,
   },
   itemContainerThemeMode: {
+    gap: 10,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

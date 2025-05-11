@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const http = axios.create({
-  baseURL: "https://api.coinlore.net/api",
+  baseURL: process.env.EXPO_PUBLIC_API_URL,
 });
 
 export { http };
