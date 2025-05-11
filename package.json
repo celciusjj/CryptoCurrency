@@ -47,7 +47,7 @@
     "react-native-screens": "~4.10.0",
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
-    "react-test-renderer": "^19.1.0",
+    "react-test-renderer": "19.0.0",
     "use-debounce": "^10.0.4"
   },
   "devDependencies": {
