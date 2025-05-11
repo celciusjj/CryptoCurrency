@@ -11,6 +11,7 @@ if [[ ! "$current_branch" =~ $allowed_branch_pattern ]]; then
     exit 1
 fi
 
-# npm run types && npm run test
+
 npm run types
+npm run test
 
