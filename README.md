@@ -4,14 +4,17 @@
 This is a cryptocurrency tracking app built with React Native and TypeScript. The app allows users to monitor prices of different cryptocurrencies and provides dynamic search and theme options for a personalized experience. 
 
 ## Screenshots
-
-### 📱 Android
-
-![Android Screenshot](link-to-android-screenshot.png)
-
 ### 🍏 iOS
 
-![iOS Screenshot](link-to-ios-screenshot.png)
+### Currency list darkmode
+<img src="https://i.imgur.com/QD5Eko9.png" alt="Screenshot 1" width="600"/>
+
+### Currency list lightmode
+<img src="https://i.imgur.com/EKnEIl0.png" alt="Screenshot 2" width="600"/>
+
+### Currency detail
+<img src="https://i.imgur.com/dH452Hc.png" alt="Screenshot 3" width="600"/>
+
 
 ## Requirements
 
@@ -40,7 +43,7 @@ npx expo start
 
 ## 📱 Run on Android (APK)
 Download the APK following the next link:
-➡️ [Download APK](<link>)
+➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/431f5cb3-f555-4aa9-9d45-65f5f20abdaf)
 
 Or, if you want to generate a sharable APK (without publishing to the Play Store), run the following command:
 ```bash
@@ -51,7 +54,7 @@ eas build --platform android --profile preview
 
 ⚠️ **Important**: To install the app on iOS devices without Expo Go, an Apple Developer account is required due to Apple's restrictions.
 
-✨ **For Preview**: You can easily test the app using **Expo Go** on your iOS device.
+✨ **For Preview**: You can easily test the app using **Expo Go** on your iOS device and running the project.
 
 To generate an iOS build (Apple Developer required):
 ```bash
@@ -60,19 +63,47 @@ eas build --platform ios --profile preview
 
 ## Some Features
 
-- Built with **React Native** and **TypeScript**
+- Built with **React Native** and **TypeScript**.
 - Implements the **Facade pattern** to separate component logic.
-– Utilizes the **Adapter Pattern** to bridge interfaces and promote modular, reusable code
-- Supports **translations** in both English and Spanish
+– Utilizes the **Adapter Pattern** to bridge interfaces and promote modular, reusable code.
+- Supports **translations** in both English and Spanish.
 - Configured with **ESLint** and **Prettier** for code quality, and best practices.
-- **Husky** set up for pre-commit hooks
-- **High performance**, using virtualized lists, debounce, infinite Scroll and caching
+- **Husky** set up for pre-commit hooks.
+- **High performance**, using virtualized lists, debounce, infinite scroll and caching.
 - Monitors detailed cryptocurrency prices every 30 seconds for real-time updates.
 - **Dark Mode** support for better visibility in low-light environments, easily switchable with a toggle.
 - **Dynamic Search** using a search bar to filter and quickly find cryptocurrencies in the list.
 - **Theme Management**: Switch between light and dark themes with a simple toggle.
-- Unit tests
-- Git flow, semantic commits
+- Unit tests.
+- Git flow, semantic commits.
+
+## 📂 Project Structure
+
+The project's folder structure follows a modular and organized approach, which facilitates code development, maintenance, and scalability.
+
+The project is organized into the following main directories:
+
+```
+CryptoCurrency/
+├── app/                # Core application using expo-router based on Next.js
+├── modules/            # Main feature modules
+│   ├── crypto/         # Cryptocurrency-specific logic
+│   │   ├── components/ # Reusable UI components for the crypto module
+│   │   ├── adapters/   # Data adapters and interface bridges
+│   │   ├── hooks/      # Custom React hooks for crypto features
+│   │   ├── models/     # Data models for cryptocurrencies
+│   │   └── screens/    # Screens specific to the crypto module
+│   ├── common/         # Shared, reusable features across the app
+│       ├── components/ # Reusable UI components for common use
+├── services/           # Global services for API communication and business logic
+├── theme/              # Global theming configurations
+├── translations/       # Global translations for multi-language support
+├── assets/             # Images, fonts, and other static assets
+├── __tests__/          # Unit tests
+├── .github/            # GitHub workflows and configurations
+├── .env                # Environment variables for API configuration
+└── package.json        # Project dependencies and scripts
+```
 
 ## Branch Naming Rules
 
