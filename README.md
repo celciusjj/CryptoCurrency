@@ -43,7 +43,7 @@ npx expo start
 
 ## 📱 Run on Android (APK)
 Download the APK following the next link:
-➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/431f5cb3-f555-4aa9-9d45-65f5f20abdaf)
+➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/e447c18e-a196-4c8d-8a2a-8250e86e0229)
 
 Or, if you want to generate a sharable APK (without publishing to the Play Store), run the following command:
 ```bash
