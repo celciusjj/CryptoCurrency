@@ -1,5 +1,5 @@
 import { useAppTheme } from '@/theme/types';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { Text } from 'react-native-paper';
 
 interface Props {
@@ -10,8 +10,12 @@ interface Props {
 
 export const CryptoInfoRow = ({ label, value, valueColor }: Props) => {
   const { colors } = useAppTheme();
+  const { width } = useWindowDimensions();
+
+  const isSmallScreen = width < 390;
+
   return (
-    <View style={styles.infoRow}>
+    <View style={[styles.infoRow, isSmallScreen && styles.infoRowColumn]}>
       <Text style={[styles.label, { color: colors.black }]}>{label}</Text>
       <Text style={{ color: valueColor ?? colors.black }}>{value || 'N/A'}</Text>
     </View>
@@ -19,19 +23,14 @@ export const CryptoInfoRow = ({ label, value, valueColor }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    borderWidth: 1,
-    borderRadius: 16,
-  },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 12,
+  },
+  infoRowColumn: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   label: {
     flexWrap: 'wrap',
