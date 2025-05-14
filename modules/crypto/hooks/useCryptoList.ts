@@ -29,7 +29,7 @@ export const useCryptoList = () => {
     fetchNextPage: query.fetchNextPage,
     hasNextPage: query.hasNextPage,
     isFetchingNextPage: query.isFetchingNextPage,
-    isLoading: query.isLoading,
+    isLoading: query.isLoading || query.isFetchingNextPage,
     filter,
     setFilter,
   };

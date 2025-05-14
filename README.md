@@ -1,38 +1,48 @@
 # App Made with Love ❤️.
 
 ## Project Description
-This is a cryptocurrency tracking app built with React Native and TypeScript. The app allows users to monitor prices of different cryptocurrencies and provides dynamic search and theme options for a personalized experience. 
+
+This is a cryptocurrency tracking app built with React Native and TypeScript. The app allows users to monitor prices of different cryptocurrencies and provides dynamic search and theme options for a personalized experience.
+
+⚠️ **Important**
+
+- (13/05/2025), added HOC pattern and animations for currency stats
 
 ## Screenshots
+
 ### 🍏 iOS
 
 ### Currency list darkmode
+
 <img src="https://i.imgur.com/QD5Eko9.png" alt="Screenshot 1" width="600"/>
 
 ### Currency list lightmode
+
 <img src="https://i.imgur.com/EKnEIl0.png" alt="Screenshot 2" width="600"/>
 
 ### Currency detail
-<img src="https://i.imgur.com/dH452Hc.png" alt="Screenshot 3" width="600"/>
 
+<img src="https://i.imgur.com/dH452Hc.png" alt="Screenshot 3" width="600"/>
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/) >= 18.x  
-- [npm](https://www.npmjs.com/) >= 9.x  
-- [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli`)  
-- [EAS CLI](https://docs.expo.dev/eas/) (`npm install -g eas-cli`)  
+- [Node.js](https://nodejs.org/) >= 18.x
+- [npm](https://www.npmjs.com/) >= 9.x
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli`)
+- [EAS CLI](https://docs.expo.dev/eas/) (`npm install -g eas-cli`)
 - Android/iOS device or simulator/emulator
 - Expo Go for development mode
 
 ## 🚀 Run the Project
+
 ⚠️ **Important**
 Set up your API keys in `.env` file in root of project.
 
 Example:
-```EXPO_PUBLIC_API_URL=https://api.coinlore.net/api```
+`EXPO_PUBLIC_API_URL=https://api.coinlore.net/api`
 
 You can run the app on:
+
 - Physical device: Scan the QR code using the Expo Go app (available on the App Store and Google Play).
 - Emulator/Simulator
 
@@ -42,10 +52,12 @@ npx expo start
 ```
 
 ## 📱 Run on Android (APK)
+
 Download the APK following the next link:
 ➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/e447c18e-a196-4c8d-8a2a-8250e86e0229)
 
 Or, if you want to generate a sharable APK (without publishing to the Play Store), run the following command:
+
 ```bash
 eas build --platform android --profile preview
 ```
@@ -57,6 +69,7 @@ eas build --platform android --profile preview
 ✨ **For Preview**: You can easily test the app using **Expo Go** on your iOS device and running the project.
 
 To generate an iOS build (Apple Developer required):
+
 ```bash
 eas build --platform ios --profile preview
 ```
@@ -65,7 +78,6 @@ eas build --platform ios --profile preview
 
 - Built with **React Native** and **TypeScript**.
 - Implements the **Facade pattern** to separate component logic.
-– Utilizes the **Adapter Pattern** to bridge interfaces and promote modular, reusable code.
 - Supports **translations** in both English and Spanish.
 - Configured with **ESLint** and **Prettier** for code quality, and best practices.
 - **Husky** set up for pre-commit hooks.
@@ -76,6 +88,9 @@ eas build --platform ios --profile preview
 - **Theme Management**: Switch between light and dark themes with a simple toggle.
 - Unit tests.
 - Git flow, semantic commits.
+- Use **HOC Pattern** to make different types of animations.
+- Use React native reanimated for row animations.
+- Use the **Adapter Pattern** to bridge interfaces and promote modular, reusable code.
 
 ## 📂 Project Structure
 
