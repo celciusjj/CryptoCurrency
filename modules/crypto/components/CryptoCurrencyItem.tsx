@@ -5,6 +5,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Divider, Icon, Surface, Text } from 'react-native-paper';
 import { CryptoCurrency } from '../models';
+import CryptoChangeIndicator from './CryptoChangeIndicator';
 import { CryptoInfoRow } from './CryptoInfoRow';
 
 interface Props {
@@ -61,6 +62,7 @@ const CryptoCurrencyItem = ({ crypto }: Props) => {
               value={`$${crypto.priceUsd.toFixed(2)}`}
             />
             <CryptoInfoRow
+              indicatorIcon={<CryptoChangeIndicator percentChange={crypto.percentChange24h} />}
               label={translate('crypto.change24h')}
               value={`${crypto.percentChange24h.toFixed(2)}%`}
               valueColor={crypto.percentChange24h >= 0 ? 'green' : 'red'}

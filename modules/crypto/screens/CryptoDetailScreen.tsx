@@ -5,6 +5,7 @@ import { useAppTheme } from '@/theme/types';
 import { useTranslations } from '@/translations/hooks/useTranslations';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { Divider, Icon, Surface, Text } from 'react-native-paper';
+import CryptoChangeIndicator from '../components/CryptoChangeIndicator';
 
 export default function CryptoDetailScreen() {
   const { translate } = useTranslations();
@@ -63,16 +64,19 @@ export default function CryptoDetailScreen() {
             />
 
             <CryptoInfoRow
+              indicatorIcon={<CryptoChangeIndicator percentChange={percentChange1h} />}
               label={translate('crypto.change1h')}
               value={`${percentChange1h.toFixed(2)}%`}
               valueColor={percentChange1h >= 0 ? 'green' : 'red'}
             />
             <CryptoInfoRow
+              indicatorIcon={<CryptoChangeIndicator percentChange={percentChange24h} />}
               label={translate('crypto.change24h')}
               value={`${percentChange24h.toFixed(2)}%`}
               valueColor={percentChange24h >= 0 ? 'green' : 'red'}
             />
             <CryptoInfoRow
+              indicatorIcon={<CryptoChangeIndicator percentChange={percentChange7d} />}
               label={translate('crypto.change7d')}
               value={`${percentChange7d.toFixed(2)}%`}
               valueColor={percentChange7d >= 0 ? 'green' : 'red'}
