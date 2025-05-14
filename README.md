@@ -6,7 +6,7 @@ This is a cryptocurrency tracking app built with React Native and TypeScript. Th
 
 ⚠️ **Important**
 
-- Added HOC pattern and animations for currency stats, pls download the new apk if you installed one before the date (13/05/2025). 
+- Added HOC pattern and animations for currency stats, ensure to make pull or download the new apk (13/05/2025) [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/1c14d0e0-1676-4c9b-b109-93231047b17b). 
 
 ## Screenshots
 
@@ -54,7 +54,7 @@ npx expo start
 ## 📱 Run on Android (APK)
 
 Download the APK following the next link:
-➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/e447c18e-a196-4c8d-8a2a-8250e86e0229)
+➡️ [Download APK](https://expo.dev/accounts/celcius/projects/million-crypto/builds/1c14d0e0-1676-4c9b-b109-93231047b17b)
 
 Or, if you want to generate a sharable APK (without publishing to the Play Store), run the following command:
 
