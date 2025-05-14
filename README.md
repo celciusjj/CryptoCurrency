@@ -6,7 +6,7 @@ This is a cryptocurrency tracking app built with React Native and TypeScript. Th
 
 ⚠️ **Important**
 
-- (13/05/2025), added HOC pattern and animations for currency stats
+- Added HOC pattern and animations for currency stats, pls download the new apk if you installed one before the date (13/05/2025). 
 
 ## Screenshots
 
